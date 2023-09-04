@@ -8,13 +8,30 @@ async function getPostsData() {
     return res.json();
 }
 
+async function getUsersData() {
+  const res = await fetch('https://jsonplaceholder.typicode.com/users')
+  
+  await new Promise((resolve) => setTimeout(resolve, 3000)) //wait 3 second
+  
+  return res.json();
+}
+
 const Posts = async () => {
 
-    const posts = await getPostsData();
+    //const posts = await getPostsData();
+    const [posts, users] = await Promise.all([getPostsData(), getUsersData()]);
 
   return (
     <div>
       <h1 className="text-4xl">Post Page</h1>
+
+      <h2 className="text-2xl">Users</h2>
+
+      {
+        users.map((user, index) => (
+          <p key={index}>{user.name}</p>
+        ))
+      }
 
       <ul className="flex flex-col gap-5">
         {
