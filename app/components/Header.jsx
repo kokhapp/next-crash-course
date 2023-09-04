@@ -19,6 +19,10 @@ const navItems = [
     {
         label: "FAQ",
         href: '/about/faq'
+    },
+        {
+        label: "Posts",
+        href: '/posts'
     }
 ]
 
