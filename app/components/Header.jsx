@@ -23,6 +23,10 @@ const navItems = [
         {
         label: "Posts",
         href: '/posts'
+    },
+        {
+        label: "Crud",
+        href: '/crud'
     }
 ]
 
